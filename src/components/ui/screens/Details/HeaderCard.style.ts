@@ -1,4 +1,13 @@
 import styled from "styled-components";
+import {
+  ARRIVED_COLOR,
+  ON_TIME_COLOR,
+  DELAYED_COLOR,
+  IN_THE_AIR_COLOR,
+  COLOR_BLACK,
+  COLOR_WHITE,
+  COLOR_GRAY,
+} from "../../../../utils/colors/colors";
 
 export const DefaultContainer = styled.View`
   flex-direction: row;
@@ -21,7 +30,7 @@ export const ContainerNumber = styled.View`
 `;
 
 export const StatusContainer = styled.View`
-  background-color: #000000;
+  background-color: ${COLOR_BLACK};
   border-radius: 8px;
   min-width: 15%;
   align-items: center;
@@ -30,13 +39,13 @@ export const StatusContainer = styled.View`
   ${({ $statusColor }) => {
     switch ($statusColor) {
       case "ARRIVED":
-        return `background-color: #000000;`;
+        return `background-color: ${ARRIVED_COLOR};`;
       case "ON_TIME":
-        return `background-color: #2E9509;`;
+        return `background-color: ${ON_TIME_COLOR};`;
       case "DELAYED":
-        return `background-color: #FECB2F;`;
+        return `background-color: ${DELAYED_COLOR};`;
       case "IN_THE_AIR":
-        return `background-color: #1872B3;`;
+        return `background-color: ${IN_THE_AIR_COLOR};`;
     }
   }};
 `;
@@ -51,7 +60,7 @@ export const FlighStatus = styled.Text`
       case grayText:
         return `font-size: 24px; font-weight: 600; color: #0000004D`;
       case status:
-        return `font-size: 12px; font-weight: 600; color: #ffffff; margin: 6px; text-transform: capitalize`;
+        return `font-size: 12px; font-weight: 600; color: ${COLOR_WHITE}; margin: 6px; text-transform: capitalize`;
       case bold:
         return `font-size: 14px; font-weight: 600`;
       case blurred:
@@ -62,7 +71,7 @@ export const FlighStatus = styled.Text`
 
 export const BoderDivisor = styled.View`
   border: 0.5px;
-  border-color: "#cccccc";
+  border-color: ${COLOR_GRAY};
   margin-top: 15px;
   align-self: center;
   width: ${({ $secondary }) => ($secondary ? "90%" : "100%")};

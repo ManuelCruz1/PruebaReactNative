@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { COLOR_WHITE } from "../../../../utils/colors/colors";
 
 export const FlightContainer = styled.View`
   justify-content: space-between;
@@ -62,7 +63,7 @@ export const FlighStatus = styled.Text`
       case grayText:
         return `font-size: 24px; font-weight: 600; color: #0000004D`;
       case status:
-        return `font-size: 12px; font-weight: 600; color: #ffffff; margin: 6px; text-transform: capitalize`;
+        return `font-size: 12px; font-weight: 600; color: ${COLOR_WHITE}; margin: 6px; text-transform: capitalize`;
       case bold:
         return `font-size: 14px; font-weight: 600`;
       case blurred:

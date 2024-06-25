@@ -15,6 +15,7 @@ import {
 import { useDispatch } from "react-redux";
 import { addFlightSelected } from "../../../../redux/flightSlice";
 import { useEffect, useState } from "react";
+import { COLOR_BLACK, COLOR_GRAY } from "../../../../utils/colors/colors";
 
 const CardInformation = ({
   navigation,
@@ -41,8 +42,8 @@ const CardInformation = ({
         </FlightStatus>
         <SwitchContainer>
           <Switch
-            trackColor={{ false: "#767577", true: "#cccccc" }}
-            thumbColor={enabledSwitch ? "#000000" : "#cccccc"}
+            trackColor={{ false: "#767577", true: COLOR_GRAY }}
+            thumbColor={enabledSwitch ? COLOR_BLACK : COLOR_GRAY}
             onValueChange={() => {
               toggleSwitch(flightData);
             }}

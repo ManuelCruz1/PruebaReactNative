@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { COLOR_GRAY } from "../../../../utils/colors/colors";
 
 export const ContainerTitle = styled.View`
   min-height: 15%;
   background-color: #f7f7f7;
-  border-bottom-color: #cccccc;
+  border-bottom-color: ${COLOR_GRAY};
   border-bottom-width: 1px;
 `;
 

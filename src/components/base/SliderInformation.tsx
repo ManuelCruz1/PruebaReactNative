@@ -10,9 +10,10 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Flight } from "../../domain/entities/flight";
 import moment from "moment";
+import { COLOR_BLACK, COLOR_GRAY } from "../../utils/colors/colors";
 
 interface Props {
-  flightData?: Flight[];
+  flightData?: Flight;
   timeFlightVisible?: boolean;
   onPress?: Function;
 }
@@ -41,7 +42,7 @@ const SliderInformation = ({
       : { width: "60%" };
 
   useEffect(() => {
-    let temporalFlightselected = {};
+    let temporalFlightselected: Flight;
     if (flightData) {
       temporalFlightselected = flightData;
     } else {
@@ -81,10 +82,6 @@ const SliderInformation = ({
     }
   }, []);
 
-  // View style={{ height: 50 }}>
-  // <Slider
-  //   style={{ width: 265, height: 50 }}
-
   return (
     <FlighProgressContainer>
       <TimeContainer>
@@ -99,8 +96,8 @@ const SliderInformation = ({
           disabled={true}
           tapToSeek={false}
           thumbImage={require("../../assets/icons/planeHorizontal.png")}
-          minimumTrackTintColor={"#000000"}
-          maximumTrackTintColor={"#cccccc"}
+          minimumTrackTintColor={COLOR_BLACK}
+          maximumTrackTintColor={COLOR_GRAY}
         />
         <FlightInfo bold>{arrivalTime}</FlightInfo>
       </TimeContainer>

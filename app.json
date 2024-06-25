@@ -11,17 +11,32 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "runtimeVersion": {
+        "policy": "appVersion"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.chimino316.PruebaReactNative",
+      "runtimeVersion": "1.2.3"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a4413325-3a0e-42ab-b537-d17d64a34907"
+      }
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 2000,
+      "url": "https://u.expo.dev/a4413325-3a0e-42ab-b537-d17d64a34907"
     }
   }
 }

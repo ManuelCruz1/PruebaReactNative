@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { COLOR_WHITE } from "../../../../utils/colors/colors";
 
 export const ColumContainer = styled.View`
   height: 100%;
@@ -7,7 +8,7 @@ export const ColumContainer = styled.View`
 `;
 
 export const DetailsContainer = styled.View`
-  background-color: #ffffff;
+  background-color: ${COLOR_WHITE};
   height: 70%;
   width: 100%;
   align-content: center;

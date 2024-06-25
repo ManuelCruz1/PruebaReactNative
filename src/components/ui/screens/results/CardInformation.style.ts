@@ -1,4 +1,12 @@
 import styled from "styled-components";
+import {
+  COLOR_BLACK,
+  COLOR_GRAY,
+  COLOR_WHITE,
+  DELAYED_COLOR,
+  IN_THE_AIR_COLOR,
+  ON_TIME_COLOR,
+} from "../../../../utils/colors/colors";
 
 export const CardContainer = styled.View`
   min-height: 100px;
@@ -6,7 +14,7 @@ export const CardContainer = styled.View`
   border-top-left-radius: 12px;
   justify-content: space-between;
   border: 2px;
-  border-color: #000000;
+  border-color: ${COLOR_BLACK};
   margin-top: 20px;
 `;
 
@@ -24,7 +32,7 @@ export const Switch = styled.Switch`
 export const SwitchContainer = styled.View``;
 
 export const FlightStatus = styled.View`
-  background-color: #000000;
+  background-color: ${COLOR_BLACK};
   width: 25%;
   border-top-left-radius: 10px;
   border-bottom-right-radius: 12px;
@@ -32,13 +40,13 @@ export const FlightStatus = styled.View`
   ${({ $statusColor }) => {
     switch ($statusColor) {
       case "ARRIVED":
-        return `background-color: #000000;`;
+        return `background-color: ${COLOR_BLACK};`;
       case "ON_TIME":
-        return `background-color: #2E9509;`;
+        return `background-color: ${ON_TIME_COLOR};`;
       case "DELAYED":
-        return `background-color: #FECB2F;`;
+        return `background-color: ${DELAYED_COLOR};`;
       case "IN_THE_AIR":
-        return `background-color: #1872B3;`;
+        return `background-color: ${IN_THE_AIR_COLOR};`;
     }
   }};
 `;
@@ -46,14 +54,14 @@ export const FlightStatus = styled.View`
 export const Status = styled.Text`
   font-size: 11px;
   margin: 4px;
-  color: #ffffff;
+  color: ${COLOR_WHITE};
   text-align: center;
   text-transform: capitalize;
 `;
 
 export const BoderDivisor = styled.View`
   border: 0.23px;
-  border-color: "#cccccc";
+  border-color: ${COLOR_GRAY};
 `;
 
 export const FooderCard = styled.View`

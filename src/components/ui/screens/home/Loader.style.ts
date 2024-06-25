@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { COLOR_BLACK, COLOR_GRAY } from "../../../../utils/colors/colors";
 
 export const Container = styled.View`
   align-items: center;
@@ -7,16 +8,15 @@ export const Container = styled.View`
 export const ActivityContainer = styled.View`
   justify-content: center;
   flex: 1;
-  /* flex-direction: row; */
   margin-top: 50%;
 `;
 
 export const Activity = styled.ActivityIndicator`
-  color: #cccccc;
+  color: ${COLOR_GRAY};
 `;
 
 export const TextLoading = styled.Text`
   margin-top: 30px;
   font-size: 20px;
-  color: #000000;
+  color: ${COLOR_BLACK};
 `;

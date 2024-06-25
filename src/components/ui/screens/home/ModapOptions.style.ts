@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { COLOR_GRAY, COLOR_WHITE } from "../../../../utils/colors/colors";
 
 export const ModalOrientation = styled.View`
   justify-content: flex-end;
@@ -6,11 +7,11 @@ export const ModalOrientation = styled.View`
 `;
 
 export const ModalContainer = styled.View`
-  background-color: #ffffff;
+  background-color: ${COLOR_WHITE};
   border-top-right-radius: 16px;
   border-top-left-radius: 16px;
   height: 50%;
-  border-color: #cccccc;
+  border-color: ${COLOR_GRAY};
   border: 1px;
   align-items: center;
 `;
@@ -25,7 +26,7 @@ export const OptionText = styled.Text`
 
 export const ContainerItem = styled.TouchableOpacity`
   margin-top: 14px;
-  background-color: #cccccc;
+  background-color: ${COLOR_GRAY};
   flex-direction: row;
   justify-content: space-around;
   align-self: center;

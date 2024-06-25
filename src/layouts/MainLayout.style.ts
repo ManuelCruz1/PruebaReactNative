@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { COLOR_WHITE } from "../utils/colors/colors";
 
 export const RecipeImageBackground = styled.ImageBackground`
   width: 100%;
@@ -17,7 +18,7 @@ export const HeaderContainer = styled.View`
 export const BackIcon = styled.View`
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: ${COLOR_WHITE};
   border-radius: 50px;
   width: 40px;
   height: 40px;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { COLOR_BLACK } from "../../../../utils/colors/colors";
 
 export const FlightNumberSection = styled.View``;
 
@@ -21,7 +22,7 @@ export const SearchParamsSection = styled.View`
 
 export const BorderContainer = styled.TouchableOpacity`
   border: 1px;
-  border-color: #000000;
+  border-color: ${COLOR_BLACK};
   border-radius: 8px;
   min-height: 50px;
   justify-content: center;
@@ -43,7 +44,7 @@ export const BorderContainer = styled.TouchableOpacity`
 
 export const TextSearchSection = styled.Text`
   font-size: 10px;
-  color: #000000;
+  color: ${COLOR_BLACK};
   margin-left: 10px;
 
   ${({ defaultStyle, bold, boldGray, number }) => {

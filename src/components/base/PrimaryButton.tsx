@@ -9,7 +9,7 @@ interface Props {
 
 const PrimaryButton = ({ text, disabled = false, onPress }: Props) => {
   return (
-    <Button onPress={onPress} disabled={disabled}>
+    <Button onPress={onPress} disabled={disabled} Red>
       <PrimaryButtonText>{text}</PrimaryButtonText>
     </Button>
   );

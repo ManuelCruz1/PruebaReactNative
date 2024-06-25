@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { COLOR_BLACK } from "../../../../utils/colors/colors";
 
 export const InfoResultContainer = styled.View`
   flex-direction: row;
@@ -8,5 +9,5 @@ export const InfoResultContainer = styled.View`
 export const DestinationTitle = styled.Text`
   font-size: 14px;
   font-weight: 600;
-  color: ${({ $textBlack }) => ($textBlack ? "#000000" : "#00000080")};
+  color: ${({ $textBlack }) => ($textBlack ? COLOR_BLACK : "#00000080")};
 `;
