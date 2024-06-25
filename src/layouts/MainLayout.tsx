@@ -32,7 +32,6 @@ const MainLayout = ({
   typeToSheach,
 }: Props) => {
   const { searchNumberList } = useSelector((state) => state.flightData);
-  console.log(Platform.OS);
   return (
     <RecipeImageBackground source={backgroundImage}>
       <SafeAreaView>

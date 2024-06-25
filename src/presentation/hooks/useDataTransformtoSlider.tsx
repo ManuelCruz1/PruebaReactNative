@@ -16,10 +16,8 @@ const useDataTransformtoSlider = ({ flightData }) => {
   useEffect(() => {
     let temporalFlightselected = {};
     if (flightData) {
-      console.log("tenemos flightData");
       temporalFlightselected = flightData;
     } else {
-      console.log("tenemos flightSelected");
       temporalFlightselected = flightSelected;
     }
     setDepartureTime(
@@ -35,10 +33,6 @@ const useDataTransformtoSlider = ({ flightData }) => {
         "h" +
         (temporalFlightselected.totalFlightTimeInMinutes % 60) +
         "m"
-    );
-    console.log(
-      "temporalFlightselected.status---",
-      temporalFlightselected.status
     );
 
     /*aqui me base en casos ya que no cuento con estatus para saber

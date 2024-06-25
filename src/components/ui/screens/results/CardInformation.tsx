@@ -28,7 +28,6 @@ const CardInformation = ({
     setEnabledSwitch((previousState) => !previousState);
     changeFavoriteList(flightData, !enabledSwitch);
   };
-  // console.log("flightData.isFavorite---", flightData.isFavorite);
   useEffect(() => {
     setEnabledSwitch(flightData.isFavorite);
   }, [flightData]);

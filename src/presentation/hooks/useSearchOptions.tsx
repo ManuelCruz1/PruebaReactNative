@@ -12,21 +12,17 @@ const useSearchOptions = ({ navigation }) => {
   const [itemList, setItemList] = useState([]);
   const { flightsList } = useSelector((state) => state.flightData);
   const dispatch = useDispatch();
-  console.log("navigation---", navigation);
 
   const search = () => {
     let temporalList = [];
 
     if (isSearchNumber) {
-      console.log("busqueda por numero");
       if (numberToShearch) {
-        console.log("puedes buscar");
         flightsList.map((item) => {
           if (
             numberToShearch.marketingFlightCode === item.marketingFlightCode
           ) {
             temporalList.push(item);
-            console.log("se encontro!!!-----");
           }
         });
         dispatch(addSearchNumber(temporalList));
@@ -40,14 +36,12 @@ const useSearchOptions = ({ navigation }) => {
         ]);
       }
     } else {
-      console.log("busqueda por destino");
       if (originToShearch && destinationToShearch) {
         flightsList.map((item) => {
           if (
             item.departureAirport === originToShearch.departureAirport &&
             item.arrivalAirport === destinationToShearch.arrivalAirport
           ) {
-            console.log("eso es toño!!!");
             temporalList.push(item);
           }
         });

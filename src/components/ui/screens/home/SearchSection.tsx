@@ -37,7 +37,6 @@ const SearchSection = ({
   setTypeToShearch,
   typeToShearch,
 }: props) => {
-  console.log(originToShearch);
   const [showModal, setShowModal] = useState(false);
   return (
     <>
