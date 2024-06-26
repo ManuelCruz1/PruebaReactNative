@@ -5,7 +5,7 @@ import {
   BorderContainer,
   TextSearchSection,
 } from "./SearchSection.style";
-import { useState, PropsWithChildren } from "react";
+import { useState } from "react";
 
 import ModalOptions from "./ModalOptions";
 import moment from "moment";

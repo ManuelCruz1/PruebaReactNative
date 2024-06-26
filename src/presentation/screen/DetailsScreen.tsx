@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/native";
 import SliderInformation from "../../components/base/SliderInformation";
 import { useSelector } from "react-redux";
 import ContainerDetails from "../../components/ui/screens/Details/ContainerDetails";
@@ -14,7 +14,7 @@ const DetailsScreen = ({ navigation }) => {
     <ContainerDetails navigation={navigation}>
       <HeaderCard flightSelected={flightSelected} />
       <SliderInformation timeFlightVisible={false} />
-      <BoderDivisor $secondary />
+      <BoderDivisor />
       <FlightInformation flightSelected={flightSelected} />
     </ContainerDetails>
   );
@@ -27,5 +27,5 @@ const BoderDivisor = styled.View`
   border-color: ${COLOR_GRAY};
   margin-top: 15px;
   align-self: center;
-  width: ${({ $secondary }) => ($secondary ? "90%" : "100%")};
+  width: 90%;
 `;

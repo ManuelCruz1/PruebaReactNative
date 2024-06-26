@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled from "styled-components/native";
 import { COLOR_BLACK, COLOR_WHITE } from "../../utils/colors/colors";
+
 export const Button = styled.TouchableOpacity`
   min-width: 90%;
   min-height: 50px;

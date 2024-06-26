@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Alert } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { addSearchNumber, addTypeToSheach } from "../../redux/flightSlice";
+import { Flight } from "../../domain/entities/flight";
 
 const useSearchOptions = ({ navigation }) => {
   const [isSearchNumber, setIsSearchNumber] = useState(true);
@@ -9,13 +10,14 @@ const useSearchOptions = ({ navigation }) => {
   const [originToShearch, setOriginToShearch] = useState(null);
   const [destinationToShearch, setDestinationToShearch] = useState(null);
   const [typeToShearch, setTypeToShearch] = useState("number");
-  const [itemList, setItemList] = useState([]);
-  const { flightsList } = useSelector((state) => state.flightData);
+  const [itemList, setItemList] = useState<Flight[]>([]); //el tipado es un generico
+  const flightsList: Flight[] = useSelector(
+    (state) => state.flightData.flightsList
+  );
+  //TODO revisar esto desde la raiz
   const dispatch = useDispatch();
-
   const search = () => {
     let temporalList = [];
-
     if (isSearchNumber) {
       if (numberToShearch) {
         flightsList.map((item) => {

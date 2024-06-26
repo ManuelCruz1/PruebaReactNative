@@ -2,14 +2,13 @@ import React from "react";
 import { Button, PrimaryButtonText } from "./PrimaryButton.style";
 
 interface Props {
-  text?: any;
+  text?: string;
   disabled?: boolean;
-  onPress?: any;
+  onPress?: () => void;
 }
-
 const PrimaryButton = ({ text, disabled = false, onPress }: Props) => {
   return (
-    <Button onPress={onPress} disabled={disabled} Red>
+    <Button onPress={onPress} disabled={disabled}>
       <PrimaryButtonText>{text}</PrimaryButtonText>
     </Button>
   );

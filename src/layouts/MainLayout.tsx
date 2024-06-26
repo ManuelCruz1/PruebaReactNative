@@ -35,7 +35,7 @@ const MainLayout = ({
   return (
     <RecipeImageBackground source={backgroundImage}>
       <SafeAreaView>
-        <HeaderContainer $Platform={Platform.OS}>
+        <HeaderContainer Platform={Platform.OS}>
           {activeBackIcon ? (
             <BackIcon>
               <AntDesign

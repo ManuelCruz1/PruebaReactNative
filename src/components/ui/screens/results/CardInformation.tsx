@@ -36,7 +36,7 @@ const CardInformation = ({
   return (
     <CardContainer>
       <TopContainer>
-        <FlightStatus $statusColor={flightData.status}>
+        <FlightStatus statusColor={flightData.status}>
           <Status>{flightData.status}</Status>
         </FlightStatus>
         <SwitchContainer>

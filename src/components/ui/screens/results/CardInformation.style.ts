@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/native";
 import {
   COLOR_BLACK,
   COLOR_GRAY,
@@ -7,6 +7,15 @@ import {
   IN_THE_AIR_COLOR,
   ON_TIME_COLOR,
 } from "../../../../utils/colors/colors";
+
+interface FlightStatusProps {
+  readonly statusColor?: string;
+}
+
+interface FooderCardText {
+  readonly numberFlight?: boolean;
+  readonly link?: boolean;
+}
 
 export const CardContainer = styled.View`
   min-height: 100px;
@@ -31,14 +40,14 @@ export const Switch = styled.Switch`
 
 export const SwitchContainer = styled.View``;
 
-export const FlightStatus = styled.View`
+export const FlightStatus = styled.View<FlightStatusProps>`
   background-color: ${COLOR_BLACK};
   width: 25%;
   border-top-left-radius: 10px;
   border-bottom-right-radius: 12px;
 
-  ${({ $statusColor }) => {
-    switch ($statusColor) {
+  ${({ statusColor }) => {
+    switch (statusColor) {
       case "ARRIVED":
         return `background-color: ${COLOR_BLACK};`;
       case "ON_TIME":
@@ -72,7 +81,7 @@ export const FooderCard = styled.View`
   margin-bottom: 4px;
 `;
 
-export const FooderCardText = styled.Text`
+export const FooderCardText = styled.Text<FooderCardText>`
   font-size: 12px;
 
   ${({ numberFlight, link }) => {

@@ -28,7 +28,7 @@ const HeaderCard = ({ flightSelected }) => {
             )}
           </FlighStatus>
         </ContainerNumber>
-        <StatusContainer $statusColor={flightSelected.status}>
+        <StatusContainer statusColor={flightSelected.status}>
           <FlighStatus status>{flightSelected.status}</FlighStatus>
         </StatusContainer>
       </DefaultContainer>

@@ -1,4 +1,7 @@
-import styled from "styled-components";
+import styled from "styled-components/native";
+interface textProps {
+  readonly bold?: boolean;
+}
 
 export const FlighProgressContainer = styled.View`
   width: 90%;
@@ -19,7 +22,7 @@ export const OriginContainer = styled.View`
   justify-content: space-between;
 `;
 
-export const FlightInfo = styled.Text`
+export const FlightInfo = styled.Text<textProps>`
   font-size: 14px;
 
   ${({ bold }) => {

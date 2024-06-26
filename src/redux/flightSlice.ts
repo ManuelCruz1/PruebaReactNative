@@ -1,10 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Flight } from "../domain/entities/flight";
 
-const initialState = {
+interface Props {
+  flightsList?: Flight[];
+  isLoading?: boolean;
+  searchNumberList?: number;
+  searchDestination?: string;
+  flightSelected?: {};
+  typeToSheach?: string;
+}
+
+const initialState: Props = {
   flightsList: [],
   isLoading: false,
-  searchNumberList: [],
-  searchDestination: [],
+  searchNumberList: null,
+  searchDestination: "",
   flightSelected: {},
   typeToSheach: "",
 };
@@ -25,7 +35,7 @@ export const flightReducer = createSlice({
     },
     addSearchNumber: (state, action) => {
       state.searchNumberList = action.payload;
-      state.searchDestination = [];
+      state.searchDestination = "";
     },
     addFlightSelected: (state, action) => {
       state.flightSelected = action.payload;

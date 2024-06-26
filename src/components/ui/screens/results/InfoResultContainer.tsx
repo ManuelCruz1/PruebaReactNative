@@ -9,7 +9,7 @@ const ResultBart = ({}) => {
 
   return (
     <InfoResultContainer>
-      <DestinationTitle $textBlack={true}>
+      <DestinationTitle textBlack={true}>
         {searchNumberList[0].departureAirport} to{" "}
         {searchNumberList[0].arrivalAirport}
       </DestinationTitle>

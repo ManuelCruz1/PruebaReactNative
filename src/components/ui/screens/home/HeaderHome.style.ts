@@ -1,5 +1,10 @@
-import styled from "styled-components";
+import styled from "styled-components/native";
 import { COLOR_GRAY } from "../../../../utils/colors/colors";
+
+interface TextProps {
+  readonly title?: boolean;
+  readonly subTitle?: boolean;
+}
 
 export const ContainerTitle = styled.View`
   min-height: 15%;
@@ -8,7 +13,7 @@ export const ContainerTitle = styled.View`
   border-bottom-width: 1px;
 `;
 
-export const Text = styled.Text`
+export const Text = styled.Text<TextProps>`
   font-family: "Garnett";
   text-align: center;
 

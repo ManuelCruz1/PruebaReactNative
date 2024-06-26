@@ -1,5 +1,13 @@
-import styled from "styled-components";
+import styled from "styled-components/native";
 import { COLOR_WHITE } from "../../../../utils/colors/colors";
+
+interface textProps {
+  readonly flightNumber?: boolean;
+  readonly grayText?: boolean;
+  readonly status?: boolean;
+  readonly bold?: boolean;
+  readonly blurred?: boolean;
+}
 
 export const FlightContainer = styled.View`
   justify-content: space-between;
@@ -23,13 +31,6 @@ export const ContainerInformation = styled.View`
   flex-direction: row;
   justify-content: space-between;
   margin-top: 13px;
-
-  ${({ flightNumber }) => {
-    switch (true) {
-      case flightNumber:
-        return `font-size: 24px; font-weight: 600`;
-    }
-  }};
 `;
 
 export const ContainerSimpleRow = styled.View`
@@ -53,7 +54,7 @@ export const ContainerSimpleColum = styled.View`
   margin: 4px;
 `;
 
-export const FlighStatus = styled.Text`
+export const FlighStatus = styled.Text<textProps>`
   font-size: 14px;
 
   ${({ flightNumber, grayText, status, bold, blurred }) => {

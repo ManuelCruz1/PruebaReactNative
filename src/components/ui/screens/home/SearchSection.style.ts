@@ -1,9 +1,26 @@
-import styled from "styled-components";
+import styled from "styled-components/native";
 import { COLOR_BLACK } from "../../../../utils/colors/colors";
+
+interface SearchParamsSectionProsp {
+  readonly principal?: boolean;
+  readonly between?: boolean;
+}
+
+interface BorderContainerProps {
+  readonly number?: boolean;
+  readonly departure?: boolean;
+  readonly destination?: boolean;
+  readonly date?: boolean;
+}
+
+interface TextSearchSectionProps {
+  readonly boldGray?: boolean;
+  readonly bold?: boolean;
+}
 
 export const FlightNumberSection = styled.View``;
 
-export const SearchParamsSection = styled.View`
+export const SearchParamsSection = styled.View<SearchParamsSectionProsp>`
   flex-direction: row;
   margin-top: 15px;
 
@@ -20,7 +37,7 @@ export const SearchParamsSection = styled.View`
   }}
 `;
 
-export const BorderContainer = styled.TouchableOpacity`
+export const BorderContainer = styled.TouchableOpacity<BorderContainerProps>`
   border: 1px;
   border-color: ${COLOR_BLACK};
   border-radius: 8px;
@@ -42,15 +59,13 @@ export const BorderContainer = styled.TouchableOpacity`
   }}
 `;
 
-export const TextSearchSection = styled.Text`
+export const TextSearchSection = styled.Text<TextSearchSectionProps>`
   font-size: 10px;
   color: ${COLOR_BLACK};
   margin-left: 10px;
 
-  ${({ defaultStyle, bold, boldGray, number }) => {
+  ${({ bold, boldGray }) => {
     switch (true) {
-      case defaultStyle:
-        return `width: 30%`;
       case bold:
         return `font-weight: 600; font-size: 16px`;
       case boldGray:

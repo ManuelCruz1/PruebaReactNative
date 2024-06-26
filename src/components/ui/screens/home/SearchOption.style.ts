@@ -1,9 +1,14 @@
-import styled from "styled-components";
+import styled from "styled-components/native";
 import {
   COLOR_BLACK,
   COLOR_GRAY,
   COLOR_WHITE,
 } from "../../../../utils/colors/colors";
+
+interface ButtonProps {
+  readonly isDrak?: boolean;
+  onPress?: Function;
+}
 
 export const ButtonContainer = styled.View`
   align-self: center;
@@ -19,18 +24,18 @@ export const ButtonContainer = styled.View`
   border-color: ${COLOR_GRAY};
 `;
 
-export const Button = styled.TouchableOpacity`
+export const Button = styled.TouchableOpacity<ButtonProps>`
   width: 48%;
   height: 96%;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  background-color: ${({ $isDrak }) => ($isDrak ? COLOR_BLACK : COLOR_WHITE)};
+  background-color: ${({ isDrak }) => (isDrak ? COLOR_BLACK : COLOR_WHITE)};
 `;
 
-export const ButtonText = styled.Text`
+export const ButtonText = styled.Text<ButtonProps>`
   font-size: 12px;
   text-align: center;
-  color: ${({ $isDrak }) => ($isDrak ? COLOR_BLACK : COLOR_WHITE)};
+  color: ${({ isDrak }) => (isDrak ? COLOR_BLACK : COLOR_WHITE)};
 `;

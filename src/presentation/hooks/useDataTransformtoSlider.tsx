@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import moment from "moment";
 
 const useDataTransformtoSlider = ({ flightData }) => {
-  const { isLoading } = useSelector((state) => state.flightData);
   const [departureTime, setDepartureTime] = useState("");
   const [arrivalTime, setArrivalTime] = useState("");
   const [origin, setOrigin] = useState("");
@@ -11,7 +10,9 @@ const useDataTransformtoSlider = ({ flightData }) => {
   const [duration, setDuration] = useState("");
   const [percentage, setPercentage] = useState(0);
 
-  const { flightSelected } = useSelector((state) => state.flightData);
+  const { flightSelected, isLoading } = useSelector(
+    (state) => state.flightData
+  );
 
   useEffect(() => {
     let temporalFlightselected = {};

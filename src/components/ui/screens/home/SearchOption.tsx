@@ -9,18 +9,18 @@ const SearchOption = ({ isSearchNumber, onPress }: Props) => {
   return (
     <ButtonContainer>
       <Button
-        $isDrak={!isSearchNumber}
-        onPress={!isSearchNumber ? onPress : null}
+        isDrak={!isSearchNumber}
+        onPress={onPress}
         disabled={isSearchNumber}
       >
-        <ButtonText $isDrak={isSearchNumber}>Flight Number</ButtonText>
+        <ButtonText isDrak={isSearchNumber}>Flight Number</ButtonText>
       </Button>
       <Button
-        $isDrak={isSearchNumber}
-        onPress={isSearchNumber ? onPress : null}
+        isDrak={isSearchNumber}
+        onPress={onPress}
         disabled={!isSearchNumber}
       >
-        <ButtonText $isDrak={!isSearchNumber}>Destination</ButtonText>
+        <ButtonText isDrak={!isSearchNumber}>Destination</ButtonText>
       </Button>
     </ButtonContainer>
   );

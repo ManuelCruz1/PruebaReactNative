@@ -5,7 +5,7 @@ import {
   FlightInfo,
   OriginContainer,
 } from "./SliderInformation.style";
-import { Platform } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Flight } from "../../domain/entities/flight";
@@ -22,24 +22,15 @@ const SliderInformation = ({
   flightData,
   timeFlightVisible,
   onPress,
-}: Props) => {
-  const [departureTime, setDepartureTime] = useState("");
+}: Props): JSX.Element => {
+  const [departureTime, setDepartureTime] = useState<string>();
   const [arrivalTime, setArrivalTime] = useState("");
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
   const [duration, setDuration] = useState("");
-  const [percentage, setPercentage] = useState(0);
+  const [percentage, setPercentage] = useState<number>();
 
   const { flightSelected } = useSelector((state) => state.flightData);
-
-  // ajustando el tamaño del icono del slider segun la plataforma
-  let sliderStyle =
-    Platform.OS === "android"
-      ? {
-          width: "40%",
-          transform: [{ scaleY: 2 }, { scaleX: 2 }],
-        }
-      : { width: "60%" };
 
   useEffect(() => {
     let temporalFlightselected: Flight;
@@ -88,7 +79,7 @@ const SliderInformation = ({
         <FlightInfo bold>{departureTime}</FlightInfo>
 
         <Slider
-          style={sliderStyle}
+          style={styles.sliderStyle}
           minimumValue={0}
           maximumValue={100}
           step={1}
@@ -113,3 +104,14 @@ const SliderInformation = ({
 };
 
 export default SliderInformation;
+
+// ajustando el tamaño del icono del slider segun la plataforma
+const styles = StyleSheet.create({
+  sliderStyle:
+    Platform.OS === "android"
+      ? {
+          width: "40%",
+          transform: [{ scaleY: 2 }, { scaleX: 2 }],
+        }
+      : { width: "60%" },
+});

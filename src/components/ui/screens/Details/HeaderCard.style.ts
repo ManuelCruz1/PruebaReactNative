@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/native";
 import {
   ARRIVED_COLOR,
   ON_TIME_COLOR,
@@ -9,7 +9,21 @@ import {
   COLOR_GRAY,
 } from "../../../../utils/colors/colors";
 
-export const DefaultContainer = styled.View`
+interface DefaultContainerProps {
+  readonly numberContainer?: boolean;
+}
+
+interface TextProps {
+  readonly grayText?: boolean;
+  readonly flightNumber?: boolean;
+  readonly status?: boolean;
+}
+
+interface StatusContainerProps {
+  readonly statusColor?: string;
+}
+
+export const DefaultContainer = styled.View<DefaultContainerProps>`
   flex-direction: row;
   justify-content: space-between;
   align-self: center;
@@ -29,15 +43,15 @@ export const ContainerNumber = styled.View`
   align-items: flex-start;
 `;
 
-export const StatusContainer = styled.View`
+export const StatusContainer = styled.View<StatusContainerProps>`
   background-color: ${COLOR_BLACK};
   border-radius: 8px;
   min-width: 15%;
   align-items: center;
   align-self: center;
 
-  ${({ $statusColor }) => {
-    switch ($statusColor) {
+  ${({ statusColor }) => {
+    switch (statusColor) {
       case "ARRIVED":
         return `background-color: ${ARRIVED_COLOR};`;
       case "ON_TIME":
@@ -50,10 +64,10 @@ export const StatusContainer = styled.View`
   }};
 `;
 
-export const FlighStatus = styled.Text`
+export const FlighStatus = styled.Text<TextProps>`
   font-size: 14px;
 
-  ${({ flightNumber, grayText, status, bold, blurred }) => {
+  ${({ flightNumber, grayText, status }) => {
     switch (true) {
       case flightNumber:
         return `font-size: 24px; font-weight: 600`;
@@ -61,10 +75,6 @@ export const FlighStatus = styled.Text`
         return `font-size: 24px; font-weight: 600; color: #0000004D`;
       case status:
         return `font-size: 12px; font-weight: 600; color: ${COLOR_WHITE}; margin: 6px; text-transform: capitalize`;
-      case bold:
-        return `font-size: 14px; font-weight: 600`;
-      case blurred:
-        return `font-size: 14px; color: #00000080`;
     }
   }};
 `;
@@ -74,5 +84,5 @@ export const BoderDivisor = styled.View`
   border-color: ${COLOR_GRAY};
   margin-top: 15px;
   align-self: center;
-  width: ${({ $secondary }) => ($secondary ? "90%" : "100%")};
+  width: "100%";
 `;
