@@ -8,8 +8,14 @@ import MainLayout from "../../layouts/MainLayout";
 import useGetData from "../hooks/useGetData";
 import useSearchOptions from "../hooks/useSearchOptions";
 import Loader from "../../components/ui/screens/home/Loader";
+import { NavigationProp } from "@react-navigation/native";
+import { RootStackParams } from "../navigator/StackNavigator";
 
-const HomeScreen = ({ navigation }) => {
+interface Props {
+  navigation?: NavigationProp<RootStackParams>;
+}
+
+const HomeScreen = ({ navigation }: Props) => {
   //simulando la peticion para la data
   const { isLoading } = useGetData();
   const {

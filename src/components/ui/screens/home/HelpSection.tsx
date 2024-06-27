@@ -5,7 +5,7 @@ interface Props {
   searchForNumber?: boolean;
 }
 
-const HelpSection = ({ searchForNumber, onPress }: Props) => {
+const HelpSection = ({ searchForNumber, onPress }: Props): JSX.Element => {
   const linkText = () => (
     <TextLink onPress={onPress}>
       {searchForNumber ? "destination" : "flight number"}

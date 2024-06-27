@@ -11,11 +11,11 @@ import PrimaryButton from "../../../base/PrimaryButton";
 interface Props {
   itemList?: Flight[];
   visible?: boolean;
-  switchModal?: any;
-  itemsToShearch?: any;
+  switchModal?: Function;
+  itemsToShearch?: Function;
   typeToShearch?: string;
-  setOriginToShearch?: any;
-  setDestinationToShearch?: any;
+  setOriginToShearch?: Function;
+  setDestinationToShearch?: Function;
 }
 
 const ModalOptions = ({
@@ -26,7 +26,7 @@ const ModalOptions = ({
   typeToShearch,
   setOriginToShearch,
   setDestinationToShearch,
-}: Props) => {
+}: Props): JSX.Element => {
   return (
     <Modal visible={visible} transparent={true} animationType="slide">
       <ModalOrientation>

@@ -1,6 +1,6 @@
 import { ContainerTitle, Text } from "./HeaderHome.style";
 
-const HeaderHome = () => {
+const HeaderHome = (): JSX.Element => {
   return (
     <ContainerTitle>
       <Text title>Track your flight</Text>

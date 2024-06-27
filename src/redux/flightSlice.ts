@@ -4,18 +4,18 @@ import { Flight } from "../domain/entities/flight";
 interface Props {
   flightsList?: Flight[];
   isLoading?: boolean;
-  searchNumberList?: number;
+  searchNumberList?: any;
   searchDestination?: string;
-  flightSelected?: {};
+  flightSelected?: Flight;
   typeToSheach?: string;
 }
 
 const initialState: Props = {
   flightsList: [],
   isLoading: false,
-  searchNumberList: null,
+  searchNumberList: [],
   searchDestination: "",
-  flightSelected: {},
+  flightSelected: null,
   typeToSheach: "",
 };
 

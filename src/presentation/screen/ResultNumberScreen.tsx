@@ -1,15 +1,24 @@
-import React, { useEffect } from "react";
+import React from "react";
 import MainLayout from "../../layouts/MainLayout";
 import SliderInformation from "../../components/base/SliderInformation";
 import InfoResultContainer from "../../components/ui/screens/results/InfoResultContainer";
 import CardInformation from "../../components/ui/screens/results/CardInformation";
 import Container from "../../components/ui/screens/results/Container";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addFlightSelected, addSearchNumber } from "../../redux/flightSlice";
-const ResultNumberScreen = ({ navigation }) => {
-  const { searchNumberList, typeToSheach } = useSelector(
+import { NavigationProp } from "@react-navigation/native";
+import { RootStackParams } from "../navigator/StackNavigator";
+import { useAppSelector } from "../../redux/store";
+
+interface Props {
+  navigation?: NavigationProp<RootStackParams>;
+}
+
+const ResultNumberScreen = ({ navigation }: Props) => {
+  const { searchNumberList, typeToSheach } = useAppSelector(
     (state) => state.flightData
   );
+
   const dispatch = useDispatch();
 
   const changeFavoriteList = (favorite, modifiBool) => {
@@ -30,7 +39,7 @@ const ResultNumberScreen = ({ navigation }) => {
         }
       });
     } else {
-      searchNumberList.map((item, i) => {
+      searchNumberList.map((item) => {
         if (item === favorite) {
           temporalArrayNoFavorite.push(temporalElement);
         } else {
@@ -50,8 +59,8 @@ const ResultNumberScreen = ({ navigation }) => {
       typeToSheach={typeToSheach}
     >
       <Container>
-        <InfoResultContainer />
-        {searchNumberList.map((item, i) => {
+        <InfoResultContainer searchNumberList={searchNumberList} />
+        {searchNumberList.map((item, i): JSX.Element => {
           return (
             <CardInformation
               key={i}

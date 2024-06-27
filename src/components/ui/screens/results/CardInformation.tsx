@@ -16,13 +16,23 @@ import { useDispatch } from "react-redux";
 import { addFlightSelected } from "../../../../redux/flightSlice";
 import { useEffect, useState } from "react";
 import { COLOR_BLACK, COLOR_GRAY } from "../../../../utils/colors/colors";
+import { NavigationProp } from "@react-navigation/native";
+import { RootStackParams } from "../../../../presentation/navigator/StackNavigator";
+import { Flight } from "../../../../domain/entities/flight";
+
+interface Props {
+  navigation?: NavigationProp<RootStackParams>;
+  children?: JSX.Element;
+  flightData: Flight;
+  changeFavoriteList: Function;
+}
 
 const CardInformation = ({
   navigation,
   children,
   flightData,
   changeFavoriteList,
-}) => {
+}: Props): JSX.Element => {
   const [enabledSwitch, setEnabledSwitch] = useState(false);
   const toggleSwitch = (flightData) => {
     setEnabledSwitch((previousState) => !previousState);

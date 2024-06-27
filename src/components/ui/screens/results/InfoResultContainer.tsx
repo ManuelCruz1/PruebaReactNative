@@ -1,12 +1,14 @@
-import { useSelector } from "react-redux";
 import {
   InfoResultContainer,
   DestinationTitle,
 } from "./InfoResultContainer.style";
+import { Flight } from "../../../../domain/entities/flight";
 
-const ResultBart = ({}) => {
-  const { searchNumberList } = useSelector((state) => state.flightData);
+interface Props {
+  searchNumberList: Flight[];
+}
 
+const ResultBart = ({ searchNumberList }: Props): JSX.Element => {
   return (
     <InfoResultContainer>
       <DestinationTitle textBlack={true}>

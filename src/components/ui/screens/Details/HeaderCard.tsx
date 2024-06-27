@@ -8,8 +8,13 @@ import {
   BoderDivisor,
 } from "./HeaderCard.style";
 import moment from "moment";
+import { Flight } from "../../../../domain/entities/flight";
 
-const HeaderCard = ({ flightSelected }) => {
+interface Props {
+  flightSelected?: Flight;
+}
+
+const HeaderCard = ({ flightSelected }: Props): JSX.Element => {
   return (
     <>
       <DefaultContainer>

@@ -1,5 +1,9 @@
 import styled from "styled-components/native";
 
+interface TextLinkProps {
+  onPress?: Function;
+}
+
 export const HelpsectionText = styled.Text`
   font-size: 12px;
   text-align: center;
@@ -8,6 +12,6 @@ export const HelpsectionText = styled.Text`
   margin-top: 20px;
 `;
 
-export const TextLink = styled.Text`
+export const TextLink = styled.Text<TextLinkProps>`
   text-decoration: underline;
 `;

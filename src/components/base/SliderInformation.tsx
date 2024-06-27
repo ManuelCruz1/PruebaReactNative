@@ -7,7 +7,6 @@ import {
 } from "./SliderInformation.style";
 import { Platform, StyleSheet } from "react-native";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { Flight } from "../../domain/entities/flight";
 import moment from "moment";
 import { COLOR_BLACK, COLOR_GRAY } from "../../utils/colors/colors";
@@ -21,24 +20,17 @@ interface Props {
 const SliderInformation = ({
   flightData,
   timeFlightVisible,
-  onPress,
 }: Props): JSX.Element => {
   const [departureTime, setDepartureTime] = useState<string>();
-  const [arrivalTime, setArrivalTime] = useState("");
-  const [origin, setOrigin] = useState("");
-  const [destination, setDestination] = useState("");
-  const [duration, setDuration] = useState("");
+  const [arrivalTime, setArrivalTime] = useState<string>();
+  const [origin, setOrigin] = useState<string>();
+  const [destination, setDestination] = useState<string>();
+  const [duration, setDuration] = useState<string>();
   const [percentage, setPercentage] = useState<number>();
-
-  const { flightSelected } = useSelector((state) => state.flightData);
 
   useEffect(() => {
     let temporalFlightselected: Flight;
-    if (flightData) {
-      temporalFlightselected = flightData;
-    } else {
-      temporalFlightselected = flightSelected;
-    }
+    temporalFlightselected = flightData;
     setDepartureTime(
       moment(temporalFlightselected.estimatedDepartureTime).format("h:mm")
     );

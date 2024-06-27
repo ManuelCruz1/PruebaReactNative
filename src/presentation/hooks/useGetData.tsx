@@ -5,7 +5,6 @@ import { getFlights } from "../../actions/flighs/get-flight";
 
 const useGetData = () => {
   const { isLoading } = useSelector((state) => state.flightData);
-
   const dispatch = useDispatch();
 
   useEffect(() => {

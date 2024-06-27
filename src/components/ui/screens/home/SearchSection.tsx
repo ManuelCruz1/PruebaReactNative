@@ -12,13 +12,13 @@ import moment from "moment";
 import { Flight } from "../../../../domain/entities/flight";
 interface props {
   itemList?: Flight[];
-  children?: any;
+  children?: JSX.Element[];
   searchForNumber: boolean;
   setNumberToShearch: Function;
   setOriginToShearch: Function;
-  originToShearch?: any;
+  originToShearch?: { departureAirport: string; estimatedDepartureTime: Date };
   setDestinationToShearch?: Function;
-  destinationToShearch?: any;
+  destinationToShearch?: { arrivalAirport: string };
   dataInfo?: Flight;
   setTypeToShearch?: Function;
   typeToShearch?: string;
@@ -102,7 +102,7 @@ const SearchSection = ({
               <TextSearchSection> Origin</TextSearchSection>
               <SearchParamsSection>
                 <TextSearchSection bold>
-                  {originToShearch ? "Mexico City" : "Select origin"}{" "}
+                  {originToShearch ? "Mexico City" : "Select origin"}
                 </TextSearchSection>
                 <TextSearchSection boldGray>
                   {originToShearch ? originToShearch.departureAirport : ""}

@@ -6,7 +6,7 @@ import {
   Container,
 } from "./Loader.style";
 
-const Loader = () => {
+const Loader = (): JSX.Element => {
   return (
     <Container>
       <ActivityContainer>

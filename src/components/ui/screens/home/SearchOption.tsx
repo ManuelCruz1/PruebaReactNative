@@ -5,7 +5,7 @@ interface Props {
   onPress?: Function;
 }
 
-const SearchOption = ({ isSearchNumber, onPress }: Props) => {
+const SearchOption = ({ isSearchNumber, onPress }: Props): JSX.Element => {
   return (
     <ButtonContainer>
       <Button

@@ -6,6 +6,7 @@ import DetailsScreen from "../screen/DetailsScreen";
 export type RootStackParams = {
   HomeScreen: undefined;
   ResultNumberScreen: undefined;
+  DetailsScreen: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParams>();

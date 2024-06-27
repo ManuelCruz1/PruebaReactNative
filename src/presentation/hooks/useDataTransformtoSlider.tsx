@@ -1,21 +1,26 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import moment from "moment";
+import { Flight } from "../../domain/entities/flight";
 
-const useDataTransformtoSlider = ({ flightData }) => {
-  const [departureTime, setDepartureTime] = useState("");
-  const [arrivalTime, setArrivalTime] = useState("");
-  const [origin, setOrigin] = useState("");
-  const [destination, setDestination] = useState("");
-  const [duration, setDuration] = useState("");
-  const [percentage, setPercentage] = useState(0);
+interface Props {
+  flightData: Flight;
+}
+
+const useDataTransformtoSlider = ({ flightData }: Props) => {
+  const [departureTime, setDepartureTime] = useState<string>("");
+  const [arrivalTime, setArrivalTime] = useState<string>("");
+  const [origin, setOrigin] = useState<string>("");
+  const [destination, setDestination] = useState<string>("");
+  const [duration, setDuration] = useState<string>("");
+  const [percentage, setPercentage] = useState<number>(0);
 
   const { flightSelected, isLoading } = useSelector(
     (state) => state.flightData
   );
 
   useEffect(() => {
-    let temporalFlightselected = {};
+    let temporalFlightselected;
     if (flightData) {
       temporalFlightselected = flightData;
     } else {

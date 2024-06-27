@@ -11,12 +11,13 @@ import {
   InformationCard,
 } from "./FlightInformation.style";
 import moment from "moment";
+import { Flight } from "../../../../domain/entities/flight";
 
 interface Props {
-  flightSelected?: any;
+  flightSelected?: Flight;
 }
 
-const FlightInformation = ({ flightSelected }: Props) => {
+const FlightInformation = ({ flightSelected }: Props): JSX.Element => {
   return (
     <FlightContainer>
       <DetailsTitle>Flight details</DetailsTitle>

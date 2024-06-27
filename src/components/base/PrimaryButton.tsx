@@ -6,7 +6,11 @@ interface Props {
   disabled?: boolean;
   onPress?: () => void;
 }
-const PrimaryButton = ({ text, disabled = false, onPress }: Props) => {
+const PrimaryButton = ({
+  text,
+  disabled = false,
+  onPress,
+}: Props): JSX.Element => {
   return (
     <Button onPress={onPress} disabled={disabled}>
       <PrimaryButtonText>{text}</PrimaryButtonText>

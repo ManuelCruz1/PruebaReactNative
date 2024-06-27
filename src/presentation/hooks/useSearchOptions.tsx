@@ -1,23 +1,31 @@
 import { useEffect, useState } from "react";
 import { Alert } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addSearchNumber, addTypeToSheach } from "../../redux/flightSlice";
 import { Flight } from "../../domain/entities/flight";
+import { NavigationProp } from "@react-navigation/native";
+import { RootStackParams } from "../navigator/StackNavigator";
+import { useAppSelector } from "../../redux/store";
 
-const useSearchOptions = ({ navigation }) => {
-  const [isSearchNumber, setIsSearchNumber] = useState(true);
+interface Props {
+  navigation?: NavigationProp<RootStackParams>;
+}
+
+//Hook para la busqueda de vuelos segun nombre o origen/destino
+
+const useSearchOptions = ({ navigation }: Props) => {
+  const [isSearchNumber, setIsSearchNumber] = useState<boolean>(true);
   const [numberToShearch, setNumberToShearch] = useState(null);
   const [originToShearch, setOriginToShearch] = useState(null);
   const [destinationToShearch, setDestinationToShearch] = useState(null);
   const [typeToShearch, setTypeToShearch] = useState("number");
   const [itemList, setItemList] = useState<Flight[]>([]); //el tipado es un generico
-  const flightsList: Flight[] = useSelector(
-    (state) => state.flightData.flightsList
-  );
-  //TODO revisar esto desde la raiz
+  const { flightsList } = useAppSelector((state) => state.flightData);
+
   const dispatch = useDispatch();
   const search = () => {
     let temporalList = [];
+    //se hace diferenciacion entre busqueda por numero de vuelo o por origen/destino
     if (isSearchNumber) {
       if (numberToShearch) {
         flightsList.map((item) => {
@@ -27,6 +35,7 @@ const useSearchOptions = ({ navigation }) => {
             temporalList.push(item);
           }
         });
+        //se almacena el resultado de la busqueda en el estado
         dispatch(addSearchNumber(temporalList));
         dispatch(addTypeToSheach("number"));
         navigation.navigate("ResultNumberScreen");
@@ -47,6 +56,7 @@ const useSearchOptions = ({ navigation }) => {
             temporalList.push(item);
           }
         });
+        //se almacena el resultado de la busqueda en el estado
         dispatch(addSearchNumber(temporalList));
         dispatch(addTypeToSheach("originDestination"));
         navigation.navigate("ResultNumberScreen");
@@ -60,6 +70,7 @@ const useSearchOptions = ({ navigation }) => {
   };
 
   useEffect(() => {
+    //Se define el catalogo a mostrar en los combos de busqueda de numero de vuelo, origen y destino
     let tempolarList = [];
     switch (typeToShearch) {
       case "number":
@@ -103,9 +114,6 @@ const useSearchOptions = ({ navigation }) => {
         setItemList(tempolarList);
         tempolarList = [];
         break;
-      case "date":
-        break;
-
       default:
         break;
     }
